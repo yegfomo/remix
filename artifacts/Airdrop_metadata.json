@@ -1,0 +1,120 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_addresses",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "_amounts",
+						"type": "uint256[]"
+					}
+				],
+				"name": "multiTransferETH",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "address[]",
+						"name": "_addresses",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "_amounts",
+						"type": "uint256[]"
+					}
+				],
+				"name": "multiTransferToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "withdrawFromFailList",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"multiTransferToken(address,address[],uint256[])": {
+					"params": {
+						"_addresses": "空投地址数组",
+						"_amounts": "代币数量数组（每个地址的空投数量）",
+						"_token": "转账的ERC20代币地址"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"multiTransferToken(address,address[],uint256[])": {
+					"notice": "向多个地址转账ERC20代币，使用前需要先授权"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Airdrop.sol": "Airdrop"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Airdrop.sol": {
+			"keccak256": "0x4b4fb30d497592d1e678f0b04b516a30856c3c71f1a76bec39a78d814bc1b81b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://da56cf8debf69eb6e6ec6f480179d0bd7b6db4c003643f588d143fb0af071d4c",
+				"dweb:/ipfs/QmdzwSH3NrtxS81TtFF7ChNA7rYDD7JVJGN6SeyLRHsq6z"
+			]
+		},
+		"contracts/IERC20.sol": {
+			"keccak256": "0xd4d9cb7fc4096ec03faf6a332f71a471f1e92293483cbc4a59162e4683fba916",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f83d5c18ac0ae6cf96a9c0132196348ffae9b6aad04c66b40908039f8ef88ed1",
+				"dweb:/ipfs/QmY1vzPi8oegk11tXhxFdPfn95YuuZhLrLEY7PpA35BoBc"
+			]
+		}
+	},
+	"version": 1
+}

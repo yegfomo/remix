@@ -1,0 +1,101 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "demo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "addr",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "balance",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct DeployContract.DemoResult",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/DeployContract.sol": "DeployContract"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/DeleteContract.sol": {
+			"keccak256": "0x23328c551f4123faf612e56d5cc8bdd771cd52aef35f21fabd831957ec055c30",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1cf7c257267efbefb367b445d45b4fcc749a76ebccb3c0949ac47ef29e3eea13",
+				"dweb:/ipfs/QmaqiCdvX5eT2MtXkU5SCgNUPfnnLzu8PBr3FBWGKRLrsL"
+			]
+		},
+		"contracts/DeployContract.sol": {
+			"keccak256": "0x52a04573f8879ceb6b7f7c364864a384ca6bbf091c5c81cb79689301d79c3fa8",
+			"urls": [
+				"bzz-raw://78989dfd5d89db705a7d12e321c6a9928db37208ea83485081b0fbed2f37a1b0",
+				"dweb:/ipfs/QmYyLge7bNoWUnSpNJQ5SPkmDeGJStPUp9rSRYb2mS5Sca"
+			]
+		}
+	},
+	"version": 1
+}
