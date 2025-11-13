@@ -1,0 +1,44 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/MerkleProof.sol": "MerkleProof"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/MerkleProof.sol": {
+			"keccak256": "0xb00bbc1bd142bc462685234715c35b49fdda3e3ae488edbec2eefb2693904515",
+			"urls": [
+				"bzz-raw://4ca5e4e1c1b3b2283852fc494a99dce32e3fa5be9c396b6a11ad38472af5e7f8",
+				"dweb:/ipfs/QmNabpJW4VsieP7ggcseDP5EoLEFqkXuMSVUfcYmusVhM4"
+			]
+		}
+	},
+	"version": 1
+}
