@@ -179,7 +179,7 @@ contract ERC721 is IERC721, IERC721Metadata{
 //函数，用于在 to 为合约的时候调用IERC721Receiver-onERC721Received, 以防 tokenId 被不小心转入黑洞。
     function _checkOnERC721Received(address from, address to, uint256 tokenId, bytes memory data) private {
         //.code：Solidity 0.8.x+ 新增的属性，返回 地址对应的字节码
-        //判断一个地址是不是合约地址,否则它是一个外部账户（EOA)私钥控制的普通账户 → code.length == 0
+        //判断一个地址是不是合约地址,否则它是一个外部账户（EOA)私钥控制的普通账户 → code.length == 0（EOA（普通钱包地址）没有代码，所以不会触发。）
         if (to.code.length > 0) {
                     try IERC721Receiver(to).onERC721Received(msg.sender, from, tokenId, data) returns (bytes4 retval) {
                         if (retval != IERC721Receiver.onERC721Received.selector) {

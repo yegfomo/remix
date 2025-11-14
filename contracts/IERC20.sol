@@ -13,7 +13,7 @@ interface IERC20 {
     //释放条件：当value单位的货比从账户owner授权给另一个账户spender(消费者)时
     event Approval(address indexed owner,address indexed spender,uint256 value);
 
-    //返回代笔总供给
+    //返回代笔总供给，返回当前合约里 代币的总量
     function totalSupply() external view returns(uint256);
 
     //返回账户accout所持有的代币数

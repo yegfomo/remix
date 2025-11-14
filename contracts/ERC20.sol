@@ -36,14 +36,17 @@ contract ERC20 is IERC20 {
     }
 
     //实现approve批准函数，代币授权逻辑
+    //msg.sender → 调用 approve 的人（代币拥有者）,spender → 被授权花钱的人,amount → 授权额度
     function approve(address spender,uint amount) public override returns(bool){
         allowance[msg.sender][spender] = amount;
         emit Approval(msg.sender,spender,amount);
         return true;
     }
     
-    //实现transferFrom函数，代币授权转账逻辑
+    //实现transferFrom函数，代币授权转账逻辑(这里的调用人不一样，是B消费者调用)
     function transferFrom(address sender,address recipient,uint amount) public override returns(bool){
+        //sender 是代币真正的 owner
+        //msg.sender 是执行 transferFrom 的 spender（你自己或某个合约）
         allowance[sender][msg.sender] -=amount;
         balanceOf[sender] -= amount;
         balanceOf[recipient] +=amount;

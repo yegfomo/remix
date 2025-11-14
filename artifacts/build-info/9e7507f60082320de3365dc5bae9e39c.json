@@ -1,0 +1,359 @@
+{
+	"id": "9e7507f60082320de3365dc5bae9e39c",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.30",
+	"solcLongVersion": "0.8.30+commit.73712a01",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/IERC721Receiver.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.4;\r\n\r\n/**\r\nIERC721Receiver 是一个标准接口，用于保证 NFT 被安全地转到一个合约里。只有实现了 onERC721Received 的合约才能接收 NFT。\r\n**/\r\ninterface IERC721Receiver {\r\n    /**\r\n    什么时候会调用这个函数：当你做 safeTransferFrom 时：\r\n    如果 to 是一个合约：ERC721 合约用 to.code.length 检查是不是合约\r\n    如果是合约 → 必须调用 onERC721Received\r\n    对方合约必须返回 这个固定的 selector：\r\n    1.这个方法只是告诉链：“我是一个能接收 NFT 的合约。\r\n    2. 只有合约地址才会触发这个验证。\r\n    3. 合约必须返回正确 selector，否则 NFT 智能合约会拒绝发送（保护 NFT 避免被锁死）\r\n    if (to.code.length > 0) {   // 对象是合约\r\n    retval = IERC721Receiver(to).onERC721Received(...)\r\n    if (retval != selector) revert \"Invalid receiver\";\r\n}\r\n    **/\r\n    function onERC721Received(address operator,address from,uint tokenId,bytes calldata data) external returns (bytes4);\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"contracts": {
+			"contracts/IERC721Receiver.sol": {
+				"IERC721Receiver": {
+					"abi": [
+						{
+							"inputs": [
+								{
+									"internalType": "address",
+									"name": "operator",
+									"type": "address"
+								},
+								{
+									"internalType": "address",
+									"name": "from",
+									"type": "address"
+								},
+								{
+									"internalType": "uint256",
+									"name": "tokenId",
+									"type": "uint256"
+								},
+								{
+									"internalType": "bytes",
+									"name": "data",
+									"type": "bytes"
+								}
+							],
+							"name": "onERC721Received",
+							"outputs": [
+								{
+									"internalType": "bytes4",
+									"name": "",
+									"type": "bytes4"
+								}
+							],
+							"stateMutability": "nonpayable",
+							"type": "function"
+						}
+					],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {
+							"onERC721Received(address,address,uint256,bytes)": "150b7a02"
+						}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"onERC721Received\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"onERC721Received(address,address,uint256,bytes)\":{\"notice\":\"\\u4ec0\\u4e48\\u65f6\\u5019\\u4f1a\\u8c03\\u7528\\u8fd9\\u4e2a\\u51fd\\u6570\\uff1a\\u5f53\\u4f60\\u505a safeTransferFrom \\u65f6\\uff1a \\u5982\\u679c to \\u662f\\u4e00\\u4e2a\\u5408\\u7ea6\\uff1aERC721 \\u5408\\u7ea6\\u7528 to.code.length \\u68c0\\u67e5\\u662f\\u4e0d\\u662f\\u5408\\u7ea6 \\u5982\\u679c\\u662f\\u5408\\u7ea6 \\u2192 \\u5fc5\\u987b\\u8c03\\u7528 onERC721Received \\u5bf9\\u65b9\\u5408\\u7ea6\\u5fc5\\u987b\\u8fd4\\u56de \\u8fd9\\u4e2a\\u56fa\\u5b9a\\u7684 selector\\uff1a 1.\\u8fd9\\u4e2a\\u65b9\\u6cd5\\u53ea\\u662f\\u544a\\u8bc9\\u94fe\\uff1a\\u201c\\u6211\\u662f\\u4e00\\u4e2a\\u80fd\\u63a5\\u6536 NFT \\u7684\\u5408\\u7ea6\\u3002 2. \\u53ea\\u6709\\u5408\\u7ea6\\u5730\\u5740\\u624d\\u4f1a\\u89e6\\u53d1\\u8fd9\\u4e2a\\u9a8c\\u8bc1\\u3002 3. \\u5408\\u7ea6\\u5fc5\\u987b\\u8fd4\\u56de\\u6b63\\u786e selector\\uff0c\\u5426\\u5219 NFT \\u667a\\u80fd\\u5408\\u7ea6\\u4f1a\\u62d2\\u7edd\\u53d1\\u9001\\uff08\\u4fdd\\u62a4 NFT \\u907f\\u514d\\u88ab\\u9501\\u6b7b\\uff09 if (to.code.length > 0) {   // \\u5bf9\\u8c61\\u662f\\u5408\\u7ea6 retval = IERC721Receiver(to).onERC721Received(...) if (retval != selector) revert \\\"Invalid receiver\\\"; }*\"}},\"notice\":\"IERC721Receiver \\u662f\\u4e00\\u4e2a\\u6807\\u51c6\\u63a5\\u53e3\\uff0c\\u7528\\u4e8e\\u4fdd\\u8bc1 NFT \\u88ab\\u5b89\\u5168\\u5730\\u8f6c\\u5230\\u4e00\\u4e2a\\u5408\\u7ea6\\u91cc\\u3002\\u53ea\\u6709\\u5b9e\\u73b0\\u4e86 onERC721Received \\u7684\\u5408\\u7ea6\\u624d\\u80fd\\u63a5\\u6536 NFT\\u3002*\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/IERC721Receiver.sol\":\"IERC721Receiver\"},\"evmVersion\":\"prague\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/IERC721Receiver.sol\":{\"keccak256\":\"0xe1646ba0d365c65b5452ce99dc77ca18b38531dbd8ce3b013fe80bf780f8daa6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4511c3ca9657be4ee5dad9d622e6b161ebad8121f82be1e38c41ee8d705448a9\",\"dweb:/ipfs/Qma4dy5A2SncZqDRv5F1nuDE81Kj6dvvuA5TRUAHUXjnFF\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {
+							"onERC721Received(address,address,uint256,bytes)": {
+								"notice": "什么时候会调用这个函数：当你做 safeTransferFrom 时： 如果 to 是一个合约：ERC721 合约用 to.code.length 检查是不是合约 如果是合约 → 必须调用 onERC721Received 对方合约必须返回 这个固定的 selector： 1.这个方法只是告诉链：“我是一个能接收 NFT 的合约。 2. 只有合约地址才会触发这个验证。 3. 合约必须返回正确 selector，否则 NFT 智能合约会拒绝发送（保护 NFT 避免被锁死） if (to.code.length > 0) {   // 对象是合约 retval = IERC721Receiver(to).onERC721Received(...) if (retval != selector) revert \"Invalid receiver\"; }*"
+							}
+						},
+						"notice": "IERC721Receiver 是一个标准接口，用于保证 NFT 被安全地转到一个合约里。只有实现了 onERC721Received 的合约才能接收 NFT。*",
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"contracts/IERC721Receiver.sol": {
+				"ast": {
+					"absolutePath": "contracts/IERC721Receiver.sol",
+					"exportedSymbols": {
+						"IERC721Receiver": [
+							17
+						]
+					},
+					"id": 18,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".4"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:0"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"canonicalName": "IERC721Receiver",
+							"contractDependencies": [],
+							"contractKind": "interface",
+							"documentation": {
+								"id": 2,
+								"nodeType": "StructuredDocumentation",
+								"src": "60:164:0",
+								"text": "IERC721Receiver 是一个标准接口，用于保证 NFT 被安全地转到一个合约里。只有实现了 onERC721Received 的合约才能接收 NFT。*"
+							},
+							"fullyImplemented": false,
+							"id": 17,
+							"linearizedBaseContracts": [
+								17
+							],
+							"name": "IERC721Receiver",
+							"nameLocation": "236:15:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"documentation": {
+										"id": 3,
+										"nodeType": "StructuredDocumentation",
+										"src": "259:702:0",
+										"text": "什么时候会调用这个函数：当你做 safeTransferFrom 时：\n如果 to 是一个合约：ERC721 合约用 to.code.length 检查是不是合约\n如果是合约 → 必须调用 onERC721Received\n对方合约必须返回 这个固定的 selector：\n1.这个方法只是告诉链：“我是一个能接收 NFT 的合约。\n2. 只有合约地址才会触发这个验证。\n3. 合约必须返回正确 selector，否则 NFT 智能合约会拒绝发送（保护 NFT 避免被锁死）\nif (to.code.length > 0) {   // 对象是合约\nretval = IERC721Receiver(to).onERC721Received(...)\nif (retval != selector) revert \"Invalid receiver\";\n}*"
+									},
+									"functionSelector": "150b7a02",
+									"id": 16,
+									"implemented": false,
+									"kind": "function",
+									"modifiers": [],
+									"name": "onERC721Received",
+									"nameLocation": "976:16:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 12,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 5,
+												"mutability": "mutable",
+												"name": "operator",
+												"nameLocation": "1001:8:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 16,
+												"src": "993:16:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 4,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "993:7:0",
+													"stateMutability": "nonpayable",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 7,
+												"mutability": "mutable",
+												"name": "from",
+												"nameLocation": "1018:4:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 16,
+												"src": "1010:12:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												},
+												"typeName": {
+													"id": 6,
+													"name": "address",
+													"nodeType": "ElementaryTypeName",
+													"src": "1010:7:0",
+													"stateMutability": "nonpayable",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 9,
+												"mutability": "mutable",
+												"name": "tokenId",
+												"nameLocation": "1028:7:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 16,
+												"src": "1023:12:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 8,
+													"name": "uint",
+													"nodeType": "ElementaryTypeName",
+													"src": "1023:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 11,
+												"mutability": "mutable",
+												"name": "data",
+												"nameLocation": "1051:4:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 16,
+												"src": "1036:19:0",
+												"stateVariable": false,
+												"storageLocation": "calldata",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes_calldata_ptr",
+													"typeString": "bytes"
+												},
+												"typeName": {
+													"id": 10,
+													"name": "bytes",
+													"nodeType": "ElementaryTypeName",
+													"src": "1036:5:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes_storage_ptr",
+														"typeString": "bytes"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "992:64:0"
+									},
+									"returnParameters": {
+										"id": 15,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 14,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 16,
+												"src": "1075:6:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bytes4",
+													"typeString": "bytes4"
+												},
+												"typeName": {
+													"id": 13,
+													"name": "bytes4",
+													"nodeType": "ElementaryTypeName",
+													"src": "1075:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bytes4",
+														"typeString": "bytes4"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "1074:8:0"
+									},
+									"scope": 17,
+									"src": "967:116:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "external"
+								}
+							],
+							"scope": 18,
+							"src": "226:860:0",
+							"usedErrors": [],
+							"usedEvents": []
+						}
+					],
+					"src": "33:1053:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

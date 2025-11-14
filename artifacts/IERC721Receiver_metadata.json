@@ -47,7 +47,12 @@
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"onERC721Received(address,address,uint256,bytes)": {
+					"notice": "什么时候会调用这个函数：当你做 safeTransferFrom 时： 如果 to 是一个合约：ERC721 合约用 to.code.length 检查是不是合约 如果是合约 → 必须调用 onERC721Received 对方合约必须返回 这个固定的 selector： 1.这个方法只是告诉链：“我是一个能接收 NFT 的合约。 2. 只有合约地址才会触发这个验证。 3. 合约必须返回正确 selector，否则 NFT 智能合约会拒绝发送（保护 NFT 避免被锁死） if (to.code.length > 0) {   // 对象是合约 retval = IERC721Receiver(to).onERC721Received(...) if (retval != selector) revert \"Invalid receiver\"; }*"
+				}
+			},
+			"notice": "IERC721Receiver 是一个标准接口，用于保证 NFT 被安全地转到一个合约里。只有实现了 onERC721Received 的合约才能接收 NFT。*",
 			"version": 1
 		}
 	},
@@ -68,11 +73,11 @@
 	},
 	"sources": {
 		"contracts/IERC721Receiver.sol": {
-			"keccak256": "0x266d339375b596e51d26fe9bd3fdfaad1e29af824817af18c546587eef99140a",
+			"keccak256": "0xe1646ba0d365c65b5452ce99dc77ca18b38531dbd8ce3b013fe80bf780f8daa6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://dfa66027290070aae401cdf5f67af2a165b91720c328fb462b4ea16216de422b",
-				"dweb:/ipfs/QmSxF7AqgC8Ym6WqXsawSamr3sBwFvNHm4PAfaDozcZR6v"
+				"bzz-raw://4511c3ca9657be4ee5dad9d622e6b161ebad8121f82be1e38c41ee8d705448a9",
+				"dweb:/ipfs/Qma4dy5A2SncZqDRv5F1nuDE81Kj6dvvuA5TRUAHUXjnFF"
 			]
 		}
 	},
