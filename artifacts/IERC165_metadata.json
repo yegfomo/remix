@@ -33,13 +33,13 @@
 		"userdoc": {
 			"kind": "user",
 			"methods": {},
-			"notice": "IERC165接口合约只声明了一个supportsInterface函数， 输入要查询的interfaceId接口id，若合约实现了该接口id，则返回true*",
+			"notice": "*",
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/ERC721.sol": "IERC165"
+			"contracts/IERC1155MetadataURI.sol": "IERC165"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -53,12 +53,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/ERC721.sol": {
-			"keccak256": "0x5701dfc694df0976d7d5ae2a551c22f939f8e42d9a203247373a3f47a6c94e91",
+		"contracts/IERC1155MetadataURI.sol": {
+			"keccak256": "0x9ace1b9ff73ce6098d23c299eda502419856e28e370da60f37f98e7f8425d9c2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3e4968fc0326c7af029001f42a732898e6e0f5100c0e047d126afa7d77923425",
-				"dweb:/ipfs/QmSZMg73ea6MQZt9jxv6sZoqwUxPyZtf6zRAfENwkW6KgS"
+				"bzz-raw://4a4af3773b902ab5d7c70a3f8335b9861636aafe05e4122b568ae938242027bc",
+				"dweb:/ipfs/QmcobCe5pRDspqypk5sVgdDojG3um3nN5Tyo9kCpMEvRzq"
 			]
 		}
 	},
