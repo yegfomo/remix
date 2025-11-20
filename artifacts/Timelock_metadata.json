@@ -185,6 +185,52 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "signature",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "executeTime",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelTransaction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "changeAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "delay",
 				"outputs": [
@@ -195,6 +241,136 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "signature",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "executeTime",
+						"type": "uint256"
+					}
+				],
+				"name": "executeTransaction",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBlockTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "signature",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "executeTime",
+						"type": "uint256"
+					}
+				],
+				"name": "getTxHash",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "signature",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "executeTime",
+						"type": "uint256"
+					}
+				],
+				"name": "queueTransaction",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -220,8 +396,33 @@
 		"devdoc": {
 			"kind": "dev",
 			"methods": {
+				"cancelTransaction(address,uint256,string,bytes,uint256)": {
+					"details": "取消特定交易。 要求：交易在时间锁队列中"
+				},
+				"changeAdmin(address)": {
+					"details": "改变管理员地址，调用者必须是Timelock合约。"
+				},
 				"constructor": {
 					"details": "构造函数，初始化交易锁定时间 （秒）和管理员地址"
+				},
+				"executeTransaction(address,uint256,string,bytes,uint256)": {
+					"details": "执行特定交易。 要求： 1. 交易在时间锁队列中 2. 达到交易的执行时间 3. 交易没过期"
+				},
+				"getBlockTimestamp()": {
+					"details": "获取当前区块链时间戳"
+				},
+				"getTxHash(address,uint256,string,bytes,uint256)": {
+					"details": "将一堆东西拼成交易的标识符"
+				},
+				"queueTransaction(address,uint256,string,bytes,uint256)": {
+					"details": "创建交易并添加到时间锁队列中。",
+					"params": {
+						"data": ": call data，里面是一些参数",
+						"executeTime": ": 交易执行的区块链时间戳 要求：executeTime 大于 当前区块链时间戳+delay",
+						"signature": ": 要调用的函数签名（function signature）",
+						"target": ": 目标合约地址",
+						"value": ": 发送eth数额"
+					}
 				}
 			},
 			"version": 1
@@ -249,11 +450,11 @@
 	},
 	"sources": {
 		"contracts/Timelock.sol": {
-			"keccak256": "0x799c9277e87691278a26d84827f07c04278f865f9b5cd8b1a406446ed1d9d97d",
+			"keccak256": "0xe7497244bdcbdbd6a2e9d2dafc95550c87c3485ced7aa79327c5b29aa934be63",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://47a191161393214969e0625661900a6d576dec61a7701c21d7019e345186d621",
-				"dweb:/ipfs/QmdrZtsFkcCgmhkGUDxt7vNW7LmBAeZubT52fRgA5nyigM"
+				"bzz-raw://830237304787a3ea0e13820b273d8ba956fa9b92744febc57b505fcd2e46cbd9",
+				"dweb:/ipfs/QmV6ExRP2fSYy4peNGmqC2LNULsxCDviMtusgrCjYZZrgc"
 			]
 		}
 	},
