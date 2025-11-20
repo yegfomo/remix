@@ -6,10 +6,24 @@
 	"output": {
 		"abi": [
 			{
-				"anonymous": false,
 				"inputs": [],
-				"name": "CallSuccess",
-				"type": "event"
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "foo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [],
@@ -26,25 +40,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "increment",
+				"name": "words",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "x",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -64,7 +65,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Logic2.sol": "Logic2"
+			"contracts/TransparentProxy.sol": "Logic2"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -78,12 +79,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Logic2.sol": {
-			"keccak256": "0x3b2c130eef5e827b7f185a60093efb95f7f773919e6d979e4e4a4f1883a6fc7d",
+		"contracts/TransparentProxy.sol": {
+			"keccak256": "0xedc1fb26b03d84890aa24840cd7aadc6def70539a73873baf29fe4a165f8c6b2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fbd4d410359cafbbd7e7821f0a986cb7771d63b8f394bf55f23698988a79e8fa",
-				"dweb:/ipfs/QmcDYWmHFkcVZNjVfsvoZJY6ebn4HVuiMzzG925Jm6zmHa"
+				"bzz-raw://40dfc4d651b993a5441a1654df1d3351f5e627e9d107b8659a506b72af61710b",
+				"dweb:/ipfs/QmWse39Gm384Mwz8FtcKjUSVc7dr3SBgkuQee1GYQTBpsR"
 			]
 		}
 	},
